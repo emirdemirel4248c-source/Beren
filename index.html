@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beren 💗</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+background:linear-gradient(135deg,#ffd1dc,#ffc0cb,#ffe6f2);
+}
+
+.card{
+width:90%;
+max-width:500px;
+background:rgba(255,255,255,.8);
+backdrop-filter:blur(10px);
+padding:40px;
+border-radius:25px;
+text-align:center;
+box-shadow:0 10px 30px rgba(255,105,180,.35);
+z-index:2;
+animation:fade .8s;
+}
+
+h1{
+color:#ff2f75;
+margin-bottom:20px;
+}
+
+p{
+font-size:20px;
+line-height:1.7;
+color:#555;
+margin-bottom:30px;
+}
+
+button{
+padding:15px 35px;
+border:none;
+border-radius:40px;
+font-size:18px;
+cursor:pointer;
+margin:8px;
+transition:.3s;
+}
+
+.next{
+background:#ff4f95;
+color:white;
+}
+
+.yes{
+background:#ff2f75;
+color:white;
+}
+
+.no{
+background:white;
+color:#ff2f75;
+}
+
+button:hover{
+transform:scale(1.08);
+}
+
+.hidden{
+display:none;
+}
+
+.heart{
+position:absolute;
+bottom:-50px;
+font-size:25px;
+animation:fly 7s linear infinite;
+opacity:.8;
+}
+
+@keyframes fly{
+0%{
+transform:translateY(0) rotate(0deg);
+opacity:1;
+}
+100%{
+transform:translateY(-120vh) rotate(360deg);
+opacity:0;
+}
+}
+
+@keyframes fade{
+from{
+opacity:0;
+transform:scale(.9);
+}
+to{
+opacity:1;
+transform:scale(1);
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<div id="page1">
+
+<h1>🌸 Merhaba Beren 🌸</h1>
+
+<p>
+
+Bu sayfayı senin için hazırladım.
+
+Sadece birkaç dakikanı ayırmanı istiyorum. 💗
+
+</p>
+
+<button class="next" onclick="page2()">
+Devam Et 💕
+</button>
+
+</div>
+
+<div id="page2" class="hidden">
+
+<h1>✨</h1>
+
+<p>
+
+Seni tanıdıkça ne kadar güzel biri olduğunu fark ettim.
+
+Gülüşün, konuşman ve enerjin...
+
+Hepsi bende çok güzel hisler bıraktı.
+
+</p>
+
+<button class="next" onclick="page3()">
+Bir Şey Daha Var...
+</button>
+
+</div>
+
+<div id="page3" class="hidden">
+
+<h1>💖 Beren...</h1>
+
+<p>
+
+Artık bunu söylemenin zamanı geldi.
+
+<br><br>
+
+Ben senden hoşlanıyorum.
+
+<br><br>
+
+Seni daha yakından tanımayı çok isterim.
+
+</p>
+
+<button class="yes" onclick="yes()">
+💗 Evet
+</button>
+
+<button class="no" onclick="no()">
+🌸 Düşünmek İstiyorum
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+function page2(){
+document.getElementById("page1").classList.add("hidden");
+document.getElementById("page2").classList.remove("hidden");
+}
+
+function page3(){
+document.getElementById("page2").classList.add("hidden");
+document.getElementById("page3").classList.remove("hidden");
+}
+
+function yes(){
+
+document.body.innerHTML=`
+
+<div style="text-align:center;color:white">
+
+<h1 style="font-size:60px;">💖</h1>
+
+<h1>Beren ❤️</h1>
+
+<h2>Teşekkür ederim...</h2>
+
+<p style="font-size:24px">
+
+Umarım birlikte çok güzel anılar biriktiririz. 🌸
+
+</p>
+
+</div>
+
+`;
+
+document.body.style.background="linear-gradient(135deg,#ff4f95,#ff7eb3)";
+
+}
+
+function no(){
+
+alert("Hiç sorun değil 🌸 Kararına saygı duyuyorum. Bunu okuduğun için teşekkür ederim.");
+
+}
+
+setInterval(()=>{
+
+let heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML=["💗","💕","🌸","💖"][Math.floor(Math.random()*4)];
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.fontSize=(20+Math.random()*25)+"px";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},7000);
+
+},250);
+
+</script>
+
+</body>
+</html>
